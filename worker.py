@@ -91,6 +91,8 @@ class ChatWorker(threading.Thread):
                 self.session.add(self.admin)
             # Commit the transaction
             self.session.commit()
+        # Send a message with the user's name
+        self.bot.send_message(self.chat.id, f"Hello {self.user.first_name}!")
         # Capture exceptions that occour during the conversation
         try:
             # If the user is not an admin, send him to the user menu
