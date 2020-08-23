@@ -420,3 +420,6 @@ error_user_does_not_exist = "⚠️  משתמש כזה לא קיים"
 fatal_conversation_exception = "☢️ באג גרם לקריסה An <b>error</b> הו לא\n" \
                                "הבאג דווח למנהל כדי שיוכל לטפל בבעיות אלה בעתיד\n" \
                                "/start על מנת לחדש את השיחה עם הבוט, אנא לחץ על"
+
+# Product, contact about specific item
+menu_contact_shop_item = "פנייה למוכר"

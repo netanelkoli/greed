@@ -421,7 +421,8 @@ class Worker(threading.Thread):
             cart[message['result']['message_id']] = [product, 0]
             # Create the inline keyboard to add the product to the cart
             inline_keyboard = telegram.InlineKeyboardMarkup(
-                [[telegram.InlineKeyboardButton(self.loc.get("menu_add_to_cart"), callback_data="cart_add")]]
+                [[telegram.InlineKeyboardButton(self.loc.get("menu_add_to_cart"), callback_data="cart_add"),
+                  telegram.InlineKeyboardButton(self.loc.get("menu_contact_shop_item"), callback_data="cart_contact")]]
             )
             # Edit the sent message and add the inline keyboard
             if product.image is None:
