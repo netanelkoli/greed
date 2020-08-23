@@ -494,6 +494,19 @@ class Worker(threading.Thread):
                                       product_list=self.__get_cart_summary(cart),
                                       total_cost=str(self.__get_cart_value(cart))),
                     reply_markup=final_inline_keyboard)
+            # If the user want to contact the seller
+            elif callback.data == "cart_contact":
+                # Get the selected product, ensuring it exists
+                p = cart.get(callback.message.message_id)
+                if p is None:
+                    continue
+                product = p[0]
+                # Find the list of available shopkeepers
+                shopkeepers = self.session.query(db.Admin).filter_by(display_on_help=True).join(db.User).all()
+                # Create the string
+                shopkeepers_string = "\n".join([admin.user.mention() for admin in shopkeepers])
+                # Send the message to the user
+                self.bot.send_message(self.chat.id, self.loc.get("contact_shopkeeper", shopkeepers=shopkeepers_string))
             # If the Remove from cart button has been pressed...
             elif callback.data == "cart_remove":
                 # Get the selected product, ensuring it exists
