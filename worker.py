@@ -515,7 +515,7 @@ class Worker(threading.Thread):
                 if p is None:
                     continue
                 product = p[0]
-                self.bot.send_message(self.chat.id, "")
+                self.bot.send_message(self.chat.id, product.name)
             # If the Remove from cart button has been pressed...
             elif callback.data == "cart_remove":
                 # Get the selected product, ensuring it exists
@@ -1373,10 +1373,6 @@ class Worker(threading.Thread):
         keyboard = []
         options: Dict[str, str] = {}
         # https://en.wikipedia.org/wiki/List_of_language_names
-        if "heb" in configloader.config["Language"]["enabled_languages"]:
-            lang = "🇮🇱 עברית"
-            keyboard.append([telegram.KeyboardButton(lang)])
-            options[lang] = "heb"
         if "it" in configloader.config["Language"]["enabled_languages"]:
             lang = "🇮🇹 Italiano"
             keyboard.append([telegram.KeyboardButton(lang)])
