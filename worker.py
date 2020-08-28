@@ -422,7 +422,9 @@ class Worker(threading.Thread):
             # Create the inline keyboard to add the product to the cart
             inline_keyboard = telegram.InlineKeyboardMarkup(
                 [[telegram.InlineKeyboardButton(self.loc.get("menu_add_to_cart"), callback_data="cart_add"),
-                  telegram.InlineKeyboardButton(self.loc.get("menu_contact_shop_item"), callback_data="cart_contact")]]
+                  telegram.InlineKeyboardButton(self.loc.get("menu_contact_shop_item"), callback_data="cart_contact"),
+                  telegram.InlineKeyboardButton(self.loc.get("menu_contact_shop_more_pic"), callback_data="cart_more_pic")
+                  ]]
             )
             # Edit the sent message and add the inline keyboard
             if product.image is None:
@@ -507,6 +509,13 @@ class Worker(threading.Thread):
                 shopkeepers_string = "\n".join([admin.user.mention() for admin in shopkeepers])
                 # Send the message to the user
                 self.bot.send_message(self.chat.id, self.loc.get("contact_shopkeeper", shopkeepers=shopkeepers_string))
+            elif callback.data == "cart_more_pic":
+                # Get the selected product, ensuring it exists
+                p = cart.get(callback.message.message_id)
+                if p is None:
+                    continue
+                product = p[0]
+                self.bot.send_message(self.chat.id, "")
             # If the Remove from cart button has been pressed...
             elif callback.data == "cart_remove":
                 # Get the selected product, ensuring it exists

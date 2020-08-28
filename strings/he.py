@@ -421,3 +421,6 @@ fatal_conversation_exception = "☢️ באג גרם לקריסה An <b>error</b
                                
 # Product, contact about specific item
 menu_contact_shop_item = "פנייה למוכר"
+
+# Product, load more pictures
+menu_contact_shop_more_pic "טען תמונות נוספות"
