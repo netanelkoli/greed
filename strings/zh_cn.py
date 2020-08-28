@@ -419,3 +419,9 @@ error_user_does_not_exist = "⚠️  所选用户不存在."
 fatal_conversation_exception = "☢️ 啊啊啊啊! 一个 <b>error</b> 阻止了此对话\n" \
                                "该错误已报告给机器人所有者，以便他可以修复它\n" \
                                "如果要重新开始对话，请发送 /start"
+
+# Product, contact about specific item
+menu_contact_shop_item = "👨 联系卖家"
+
+# Product, load more pictures
+menu_contact_shop_more_pic = "📷 加载更多图片"

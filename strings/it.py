@@ -427,3 +427,9 @@ error_user_does_not_exist = "⚠️  L'utente selezionato non esiste."
 fatal_conversation_exception = "☢️ Oh no! Un <b>errore</b> ha interrotto questa conversazione.\n" \
                                "L'errore è stato segnalato al proprietario del bot in modo che possa sistemarlo.\n" \
                                "Per avviare una nuova conversazione, invia il comando /start."
+
+# Product, contact about specific item
+menu_contact_shop_item = "👨 contattare il venditore"
+
+# Product, load more pictures
+menu_contact_shop_more_pic = "📷 carica più foto"
